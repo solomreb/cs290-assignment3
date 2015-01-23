@@ -13,7 +13,10 @@
 */
 
 //your code here
-
+fuction uselessFunction(){
+    
+    return null;
+}
 //end your code
 
 var bar = 'not a function';
@@ -30,6 +33,12 @@ var barType = typeof bar;
 */
 
 //your code here
+function (doubleArray){
+    for (i=0; i<doubleArray.length-1; i++){
+        doubleArray[i] = 2 * doubleArray[i];
+    }
+    
+}
 
 //end your code
 
