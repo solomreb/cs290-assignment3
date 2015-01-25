@@ -10,9 +10,10 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+  return {type: "Goldfish", brand: "Pepperidge Farm", flavor: "Cheddar", count: 2000}; 
   //end your code
 }
+
 
 /**
 * Create a constructor function for a `MessageLog` object.
@@ -38,7 +39,35 @@ function returnObjectLiteral() {
 */
 
 //your code here
-
+function MessageLog(user) {
+    this.msgsReceived = [];
+    this.msgsSent = [];
+    this.user = user;
+    logMessage: function (messageText, direction){
+        if (direction == 0){
+            if (msgsSent.length >=5){//if 5 or more msgs, remove first msg
+                msgsSent.shift();    //to make way for adding msgs
+            }
+            msgsSent.push(messageText);
+        }
+        else{
+            if (msgsReceived.length >=5){ //if 5 or more msgs, remove first msg
+                msgsReceived.shift();     //to make way for adding msgs
+            }
+            msgsReceived.push(messageText);
+        }
+        
+    }
+    getSentMessage: function (n){
+        return msgsSent[msgsSent.length-n-1];
+    }
+    totalSent: function (){
+        return msgsSent.length;
+    }
+    totalReceived: function(){
+        return msgsReceived.length;
+    }
+}
 //end your code
 
 /**
@@ -47,7 +76,9 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
-
+MessageLog.prototype.lastReceivedMessage = function(){
+    return msgsReceived[msgsReceived.length-n-1];
+};
 //end your code
 
 /**
@@ -57,5 +88,9 @@ function returnObjectLiteral() {
 */
 
 //your code here
+var myLog = new MessageLog("BlackHatGuy");
+myLog.logMessage("foo", 1);
+myLog.logMessage("bar", 1);
+myLog.logMessage("baz", 1);
 
 //end your code

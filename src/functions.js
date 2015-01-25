@@ -13,8 +13,7 @@
 */
 
 //your code here
-fuction uselessFunction(){
-    
+function uselessFunction(){
     return null;
 }
 //end your code
@@ -33,11 +32,13 @@ var barType = typeof bar;
 */
 
 //your code here
-function (doubleArray){
-    for (i=0; i<doubleArray.length-1; i++){
+bar = function(doubleArray){
+    for (i=0; i<doubleArray.length; i++){
+        if (typeof doubleArray[i] != 'number')
+            return false;
         doubleArray[i] = 2 * doubleArray[i];
     }
-    
+    return true;
 }
 
 //end your code
@@ -67,7 +68,6 @@ function GitLog(hash, date, message) {
 *
 * You will covert these into GitLog objects with the following properties:
 *
-*
 * @param {array.<string>} logArray - an array of Git commit messages of the
 * above
 * format.
@@ -75,5 +75,13 @@ function GitLog(hash, date, message) {
 */
 
 //your code here
+function parseGit(logArray){
+    var resultArray = [];
+    for (i=0; i<logArray.length; i++){
+        var myArray = /(\w+)\s+([^"]*)\s+\"(.*)\"/.exec(logArray[i]);
+        resultArray[i] = new GitLog(myArray[1], myArray[2], myArray[3]);
+    }
+    return resultArray;
+}
 
 //end your code
