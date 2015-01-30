@@ -5,3 +5,15 @@ Tasks: started to code functions.js and variables.js
 Start: Mon, 19 Jan 2015 17:20:50 -0800 
 End: Mon, 19 Jan 2015 17:40:52 -0800 
 Tasks: cloned Basic-JavaScript-Assignment-W15.git, read instructions
+
+Start: Fri, 23 Jan 2015 18:14:50 -0800 
+End: Fri, 23 Jan 2015 19:52:07 -0800 
+Tasks: continued to code functions.js and variables.js, started on objects.js
+
+Start: Sat, 24 Jan 2015 12:00:23 -0800 
+End: Sat, 24 Jan 2015 13:45:20 -0800 
+Tasks: Debugging parseGit function
+
+Start: , Wed, 28 Jan 2015 16:40:33 -0800 
+End: Wed, 28 Jan 2015 17:37:08 -0800 
+Tasks: Debugging

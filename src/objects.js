@@ -10,7 +10,7 @@
 
 function returnObjectLiteral() {
   //your code here
-  return {type: "Goldfish", brand: "Pepperidge Farm", flavor: "Cheddar", count: 2000}; 
+    return ({type: "Goldfish", brand: "Pepperidge Farm", flavor: "Cheddar", count: 2000});
   //end your code
 }
 
@@ -31,7 +31,7 @@ function returnObjectLiteral() {
 * Behavior for other numbers is undefined.
 * getSentMessage({number} n) - returns as a string, the content of the nth most
 * recently sent message. To conserve memory, the object should only keep the
-* last 5 message. n=0 retrieves the most recent n=4 retrieves the least recent
+* last 5 messages. n=0 retrieves the most recent n=4 retrieves the least recent
 * of the 5.
 * totalSent() - returns an integer indicating the total number of messages sent
 * totalReceived() - returns an integer indicating the total number of messages
@@ -41,31 +41,34 @@ function returnObjectLiteral() {
 //your code here
 function MessageLog(user) {
     this.msgsReceived = [];
+    this.getReceived = function() {return msgsReceived}
     this.msgsSent = [];
     this.user = user;
-    logMessage: function (messageText, direction){
-        if (direction == 0){
-            if (msgsSent.length >=5){//if 5 or more msgs, remove first msg
-                msgsSent.shift();    //to make way for adding msgs
-            }
-            msgsSent.push(messageText);
+    this.logMessage= function (messageText, direction){
+        if (direction == 0){ //send
+            //if (this.msgsSent.length >=5){//if 5 or more msgs, remove first msg
+            //    this.msgsSent.shift();    //to make way for adding msgs
+            //}
+            this.msgsSent.push(messageText);
+            //this.msgsSent[this.msgsSent.length] = messageText;
         }
-        else{
-            if (msgsReceived.length >=5){ //if 5 or more msgs, remove first msg
-                msgsReceived.shift();     //to make way for adding msgs
-            }
-            msgsReceived.push(messageText);
+        else{ //receive
+            //if (this.msgsReceived.length >=5){ //if 5 or more msgs, remove first msg
+            //    this.msgsReceived.shift();     //to make way for adding msgs
+            //}
+            this.msgsReceived.push(messageText);
+            //this.msgsReceived[this.msgsReceived.length] = messageText;
         }
         
     }
-    getSentMessage: function (n){
-        return msgsSent[msgsSent.length-n-1];
+    this.getSentMessage= function (n){
+        return this.msgsSent[this.msgsSent.length-n-1];
     }
-    totalSent: function (){
-        return msgsSent.length;
+    this.totalSent= function (){
+        return this.msgsSent.length;
     }
-    totalReceived: function(){
-        return msgsReceived.length;
+    this.totalReceived= function(){
+        return this.msgsReceived.length;
     }
 }
 //end your code
@@ -75,9 +78,10 @@ function MessageLog(user) {
 * lastReceivedMessage() - returns the message text of the last message the user
 * received.
 */
+
 //your code here
 MessageLog.prototype.lastReceivedMessage = function(){
-    return msgsReceived[msgsReceived.length-n-1];
+    return (this.msgsReceived[0]);
 };
 //end your code
 
