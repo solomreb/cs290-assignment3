@@ -40,24 +40,25 @@ function returnObjectLiteral() {
 
 //your code here
 function MessageLog(user) {
+    this.numMsgsSent = 0;
+    this.numMsgsReceived = 0;
     this.msgsReceived = [];
-    this.getReceived = function() {return msgsReceived}
     this.msgsSent = [];
     this.user = user;
     this.logMessage= function (messageText, direction){
         if (direction == 0){ //send
-            //if (this.msgsSent.length >=5){//if 5 or more msgs, remove first msg
-            //    this.msgsSent.shift();    //to make way for adding msgs
-            //}
+            if (this.msgsSent.length >=5){//if 5 or more msgs, remove first msg
+                this.msgsSent.shift();    //to make way for adding msgs
+            }
             this.msgsSent.push(messageText);
-            //this.msgsSent[this.msgsSent.length] = messageText;
+            this.numMsgsSent++;
         }
         else{ //receive
-            //if (this.msgsReceived.length >=5){ //if 5 or more msgs, remove first msg
-            //    this.msgsReceived.shift();     //to make way for adding msgs
-            //}
+            if (this.msgsReceived.length >=5){ //if 5 or more msgs, remove first msg
+                this.msgsReceived.shift();     //to make way for adding msgs
+            }
             this.msgsReceived.push(messageText);
-            //this.msgsReceived[this.msgsReceived.length] = messageText;
+            this.numMsgsReceived++;
         }
         
     }
@@ -65,10 +66,10 @@ function MessageLog(user) {
         return this.msgsSent[this.msgsSent.length-n-1];
     }
     this.totalSent= function (){
-        return this.msgsSent.length;
+        return this.numMsgsSent;
     }
     this.totalReceived= function(){
-        return this.msgsReceived.length;
+        return this.numMsgsReceived;
     }
 }
 //end your code
